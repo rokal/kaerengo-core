@@ -3,19 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entities;
+package org.team226.kaerengo.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
-public class UtilisateurFormation implements Serializable {
+@Table(name = "formation_metier")
+public class FormationMetier implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -27,8 +30,14 @@ public class UtilisateurFormation implements Serializable {
 	private Formation formation;
 
 	@ManyToOne
-	@JoinColumn(name = "utilisateurId", referencedColumnName = "id")
-	private Utilisateur utilisateur;
+	@JoinColumn(name = "metierId", referencedColumnName = "id")
+	private Metier metier;
+
+	@Column
+	private Integer compatibilite;
+
+	public FormationMetier() {
+	}
 
 	public Long getId() {
 		return id;
@@ -46,30 +55,20 @@ public class UtilisateurFormation implements Serializable {
 		this.formation = formation;
 	}
 
-	@Override
-	public int hashCode() {
-		int hash = 0;
-		hash += (id != null ? id.hashCode() : 0);
-		return hash;
+	public Metier getMetier() {
+		return metier;
 	}
 
-	@Override
-	public boolean equals(Object object) {
-		// TODO: Warning - this method won't work in the case the id fields are
-		// not set
-		if (!(object instanceof UtilisateurFormation)) {
-			return false;
-		}
-		UtilisateurFormation other = (UtilisateurFormation) object;
-		if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-			return false;
-		}
-		return true;
+	public void setMetier(Metier metier) {
+		this.metier = metier;
 	}
 
-	@Override
-	public String toString() {
-		return "kaerengo.entities.UtilisateurFormation[ id=" + id + " ]";
+	public Integer getCompatibilite() {
+		return compatibilite;
+	}
+
+	public void setCompatibilite(Integer compatibilite) {
+		this.compatibilite = compatibilite;
 	}
 
 }
