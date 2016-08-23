@@ -7,7 +7,7 @@
         <description>H2 In Memory DB</description>
 
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
-
+        <jar-file>${project.build.outputDirectory}</jar-file>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
 
 

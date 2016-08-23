@@ -3,6 +3,7 @@ package org.team226.kaerengo.data.hbn;
 import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -17,12 +18,13 @@ import org.team226.kaerengo.domain.formation.SimpleFormation;
 public class HbnFormationDaoTest {
 	private static HbnFormationDao formationDao;
 	private static EntityManager entityManager;
-	private static Formation formation;
+	private Formation formation;
 
 	@BeforeClass
 	public static void init() {
 		formationDao = new HbnFormationDao();
-		entityManager = EntityManagerFactoryProvider.getFactory().createEntityManager();
+		EntityManagerFactory emf = EntityManagerFactoryProvider.getFactory();
+		entityManager = emf.createEntityManager();
 
 	}
 
@@ -32,12 +34,11 @@ public class HbnFormationDaoTest {
 	}
 
 	@Test
-	public void EtandonneUneFormation_QuandElleEstPersistee_AlorsElleYResidePermanemment() {
+	public void EtandonneUneFormation_QuandElleEstPersistee_AlorsElleResidePermanemmentEnBD() {
 		formation = new SimpleFormation("informatique", "une filiere de reve");
 
 		long idFormation = formationDao.addFormation(formation);
 		Formation formationPersistee = trouverFormation(idFormation);
-		System.out.println(formationPersistee);
 
 		assertEquals(formation, formationPersistee);
 	}

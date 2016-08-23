@@ -4,7 +4,7 @@
     <groupId>org.team226.kaerengo</groupId>
     <artifactId>kaerengo-core</artifactId>
     <version>1.0</version>
-    <name>kaerengo</name>
+    <name>kaerengo-core</name>
 
     <dependencies>
         <dependency>
@@ -70,6 +70,13 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
     </build>
 
 
