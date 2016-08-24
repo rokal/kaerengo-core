@@ -15,14 +15,14 @@ import org.team226.kaerengo.domain.formation.Formation;
 import org.team226.kaerengo.domain.formation.SimpleFormation;
 
 @RunWith(MockitoJUnitRunner.class)
-public class HbnFormationDaoTest {
-	private static HbnFormationDao formationDao;
+public class HbnFormationDAOTest {
+	private static HbnFormationDAO formationDao;
 	private static EntityManager entityManager;
 	private Formation formation;
 
 	@BeforeClass
 	public static void init() {
-		formationDao = new HbnFormationDao();
+		formationDao = new HbnFormationDAO();
 		EntityManagerFactory emf = EntityManagerFactoryProvider.getFactory();
 		entityManager = emf.createEntityManager();
 

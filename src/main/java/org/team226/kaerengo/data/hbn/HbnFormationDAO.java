@@ -6,7 +6,7 @@ import org.team226.kaerengo.data.EntityManagerFactoryProvider;
 import org.team226.kaerengo.domain.formation.Formation;
 import org.team226.kaerengo.domain.formation.FormationDAO;
 
-public class HbnFormationDao implements FormationDAO {
+public class HbnFormationDAO implements FormationDAO {
 
 	@Override
 	public long addFormation(Formation formation) {
